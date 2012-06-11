@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Summary: Move directories containing mp3's to mp3 directory
+# Summary: Copy directories containing mp3's to mp3 directory
 # Author: divreg
 
 # Specify base directory $1 
@@ -25,7 +25,6 @@ for directory in $(find $base -type d) ; do
 		rsync -rt -v --delete --force $directory $mp3dir > /dev/null 2>&1
 #		cp -r "$directory" "$mp3dir"
 		echo "Copying $directory to $mp3dir"
-#		echo "Moving $directory to $mp3dir$directory"
 		continue
 	fi
 done
