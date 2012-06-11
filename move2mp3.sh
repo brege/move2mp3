@@ -24,7 +24,7 @@ for directory in $(find $base -type d) ; do
 		cd $base
 		rsync -rt -v --delete --force $directory $mp3dir > /dev/null 2>&1
 #		cp -r "$directory" "$mp3dir"
-		echo "Moving $directory to $mp3dir"
+		echo "Copying $directory to $mp3dir"
 #		echo "Moving $directory to $mp3dir$directory"
 		continue
 	fi

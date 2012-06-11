@@ -1,1 +1,14 @@
 This is a simple script to batch copy directories containing mp3's to a specified directory.
+
+INSTALLING
+
+yum install git
+cd /opt/vortexbox/
+git clone https://github.com/divreg/move2mp3
+chmod a+x /opt/vortexbox/move2mp3/move2mp3.sh
+
+USAGE
+
+e.g. 
+
+/opt/vortexbox/move2mp3/move2mp3.sh /storage/music/flac /storage/music/mp3
