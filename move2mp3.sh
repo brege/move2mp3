@@ -6,12 +6,14 @@
 # Specify base directory $1 
 if [ "$1" != "" ] ; then
 	cd $1 > /dev/null 2>&1
+else 
+	cd "/storage/music/flac"
 fi
 
 # Specify mp3 directory $2
 if [ "$2" != "" ] ; then
 	mp3dir="$2"
-else mp3dir="/storage/music/mp3/"
+else mp3dir="/storage/music/mp3"
 fi
 
 base=$( pwd )
@@ -19,12 +21,13 @@ base=$( pwd )
 for directory in $(find $base -type d) ; do
 	cd $base
 	cd $directory > /dev/null 2>&1
-	files=$(ls *.[mM][Pp4][3a] > /dev/null 2>&1 | wc -l)
+	files=$(ls *.[Mm][Pp]3 2> /dev/null | wc -l)
 	if [ $files != "0" ] ; then
+		reldir="."$( echo $directory | sed s^"$base"^^ )
 		cd $base
-		rsync -rt -v --delete --force $directory $mp3dir > /dev/null 2>&1
+		rsync -Rrtvz --delete --force $reldir $mp3dir > /dev/null 2>&1
 #		cp -r "$directory" "$mp3dir"
-		echo "Copying $directory to $mp3dir"
+		echo "Syncing $directory to $mp3dir"
 		continue
 	fi
 done

@@ -1,4 +1,11 @@
+ABOUT
+
 This is a simple script to batch copy directories containing mp3's to a specified directory.
+
+CHANGELOG
+
+* Thur Jun 21, 2012 by divreg
+  Added support for nested directories (e.g. ALBUMARTIST/ALBUM) 
 
 INSTALLING
 
@@ -12,3 +19,5 @@ USAGE
 e.g. 
 
 /opt/vortexbox/move2mp3/move2mp3.sh /storage/music/flac /storage/music/mp3
+
+BE SURE TO INCLUDE THE FULL PATHS!
